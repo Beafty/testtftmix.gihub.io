@@ -13,23 +13,23 @@
 <body>
     <div class="background-image"></div>
     <div class="background-darken"></div>
-    <h1>云顶之弈 自定义混音站</h1>
-    <h2>选择音轨进行播放，可以选择多个音轨叠加在一起创建独特的组合。</h2>
+    <h1 style="text-align: center;">云顶之弈 自定义混音站</h1>
+    <h2 style="text-align: center;">选择音轨进行播放，可以选择多个音轨叠加在一起创建独特的组合。</h2>
     <div class="alert alert-info">
-        <strong>移动设备支持</strong><br>
-        很抱歉，目前此页面不支持移动设备。请暂时切换至桌面浏览器客户端。如有任何问题或功能建议，请报告至<a href="https://github.com/OfficiallySp/tftmixer"><strong>GitHub 代码库</strong></a>。
+        <strong>暂无移动设备支持！</strong><br>
+        很抱歉，目前此页面不支持移动设备。请暂时切换至桌面浏览器。如有任何问题或功能建议，请报告至<a href="https://github.com/OfficiallySp/tftmixer"><strong>GitHub</strong></a>。
     </div>
-    <div>
+    <div class="toggle text-center">
              <label for="globalVolume"><strong>
                 <h4>全局音量：</h4>
             </strong></label>
         <input type="range" id="globalVolume" name="volume" min="0" max="1" step="0.01" value="1" oninput="setGlobalVolume(this.value)">
     </div>
-    <div class="toggle">
+    <div class="toggle text-center">
         <input type="checkbox" id="realTime" onclick="toggleRealTime()"/>
         <label for="realTime">实时添加/删除音轨（播放时加载时间较长）</label>
     </div>
-    <div class="toggle">
+    <div class="toggle text-center">
         <input type="checkbox" id="repeat">
         <label for="repeat">重复播放</label>
     </div>
@@ -38,6 +38,7 @@
             <span class="visually-hidden">加载音轨中...</span>
         </div>
     </div>
+    <div class="text-center">
     <button class="btn btn-success" onclick="playSelectedTracks()">播放所选音轨</button>
     <button class="btn btn-secondary" onclick="stopAllTracks()">停止所有音乐</button>
     <button class="btn btn-warning" onclick="randomSelectTracks()">随机选择音轨</button>
@@ -46,6 +47,7 @@
     <button class="btn btn-danger" onclick="clearAllSelections()">清除所有选择</button>
     <button onclick="generateShareableLink()" class="btn btn-info">生成可分享链接</button>
     <button onclick="tweetMix()" class="btn btn-primary"><i class="fab fa-twitter"></i>分享到推特</button>
+    </div>
     <div class="alert alert-success" id="copyNotification" style="display:none; position: fixed; bottom: 20px; right: 20px;">
         <strong>URL已复制到剪贴板</strong>
     </div>
