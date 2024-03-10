@@ -14,40 +14,40 @@
     <div class="background-image"></div>
     <div class="background-darken"></div>
     <h1>TFT Remix Rumble Music Mixer</h1>
-    <h2>Select Tracks to Play, Select multiple tracks to play on top of eachover to create unique combinations.</h2>
+    <h2>选择音轨进行播放，可以选择多个音轨叠加在一起创建独特的组合。</h2>
     <div class="alert alert-info">
-        <strong>Mobile Support</strong><br>
-        Unfortunately as of now. this page will not work on a mobile device. Please switch to a desktop browser client in the meantime. Report any issues and feature suggestions to the <a href="https://github.com/OfficiallySp/tftmixer"><strong>GitHub repository</strong></a>
+        <strong>移动设备支持</strong><br>
+        很抱歉，目前此页面不支持移动设备。请暂时切换至桌面浏览器客户端。如有任何问题或功能建议，请报告至<a href="https://github.com/OfficiallySp/tftmixer"><strong>GitHub 代码库</strong></a>。
     </div>
     <div>
-        <label for="globalVolume"><strong>
-                <h4>Global Volume:</h4>
+             <label for="globalVolume"><strong>
+                <h4>全局音量：</h4>
             </strong></label>
         <input type="range" id="globalVolume" name="volume" min="0" max="1" step="0.01" value="1" oninput="setGlobalVolume(this.value)">
     </div>
     <div class="toggle">
         <input type="checkbox" id="realTime" onclick="toggleRealTime()"/>
-        <label for="realTime">Real Time Add/Remove Tracks (longer load on play) </label>
+        <label for="realTime">实时添加/删除音轨（播放时加载时间较长）</label>
     </div>
     <div class="toggle">
         <input type="checkbox" id="repeat">
-        <label for="repeat">Repeat</label>
+        <label for="repeat">重复播放</label>
     </div>
     <div id="loadingIndicator" class="text-center" style="display: none;">
         <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading Tracks...</span>
+            <span class="visually-hidden">加载音轨中...</span>
         </div>
     </div>
-    <button class="btn btn-success" onclick="playSelectedTracks()">Play Selected Tracks</button>
-    <button class="btn btn-secondary" onclick="stopAllTracks()">Stop All Music</button>
-    <button class="btn btn-warning" onclick="randomSelectTracks()">Random Select Tracks</button>
-    <button class="btn btn-warning" onclick="randomSelectEarlyTracks()">Random Select Early Tracks</button>
-    <button class="btn btn-warning" onclick="randomSelectLateTracks()">Random Select Late Tracks</button>
-    <button class="btn btn-danger" onclick="clearAllSelections()">Clear All Selections</button>
-    <button onclick="generateShareableLink()" class="btn btn-info">Generate Shareable Link</button>
-    <button onclick="tweetMix()" class="btn btn-primary"><i class="fab fa-twitter"></i> Tweet Mix</button>
+    <button class="btn btn-success" onclick="playSelectedTracks()">播放所选音轨</button>
+    <button class="btn btn-secondary" onclick="stopAllTracks()">停止所有音乐</button>
+    <button class="btn btn-warning" onclick="randomSelectTracks()">随机选择音轨</button>
+    <button class="btn btn-warning" onclick="randomSelectEarlyTracks()">随机选择早期音轨</button>
+    <button class="btn btn-warning" onclick="randomSelectLateTracks()">随机选择后期音轨</button>
+    <button class="btn btn-danger" onclick="clearAllSelections()">清除所有选择</button>
+    <button onclick="generateShareableLink()" class="btn btn-info">生成可分享链接</button>
+    <button onclick="tweetMix()" class="btn btn-primary"><i class="fab fa-twitter"></i> 推文混音</button>
     <div class="alert alert-success" id="copyNotification" style="display:none; position: fixed; bottom: 20px; right: 20px;">
-        <strong>URL Copied to Clipboard</strong>
+        <strong>URL 已复制到剪贴板</strong>
     </div>
     <hr>
     <div class="trait-container">
@@ -80,7 +80,7 @@
         </div>
         <div class="trait">
             <img src="icon/punk.png" alt="Punk">
-            <h3>Punk</h3>
+            <h3>朋克</h3>
             <input type="checkbox" id="punk_early_drums" name="punk_early_drums" class="early">
             <label for="punk_early_drums">early_drums</label>
             <audio id="audiopunk_early_drums" src="tracks/punk_early_drums.ogg" preload="none" loop></audio>
@@ -99,7 +99,7 @@
         </div>
         <div class="trait">
             <img src="icon/maestro.png" alt="maestro">
-            <h3>Maestro</h3>
+            <h3>烬</h3>
             <input type="checkbox" id="maestro_early" name="maestro_early" class="early">
             <label for="maestro_early">early</label>
             <audio id="audiomaestro_early" src="tracks/maestro_early.ogg" preload="none" loop></audio>
@@ -110,7 +110,7 @@
         </div>
         <div class="trait">
             <img src="icon/8bit.png" alt="8bit">
-            <h3>8 Bit</h3>
+            <h3>8比特</h3>
             <input type="checkbox" id="8bit_early_drums" name="8bit_early_drums" class="early">
             <label for="8bit_early_drums">early_drums</label>
             <audio id="audio8bit_early_drums" src="tracks/8bit_early_drums.ogg" preload="none" loop></audio>
@@ -129,7 +129,7 @@
         </div>
         <div class="trait">
             <img src="icon/country.png" alt="8bit">
-            <h3>Country</h3>
+            <h3>乡村乐</h3>
             <input type="checkbox" id="country_early_drums" name="country_early_drums" class="early">
             <label for="country_early_drums">early_drums</label>
             <audio id="audiocountry_early_drums" src="tracks/country_early_drums.ogg" preload="none" loop></audio>
@@ -148,7 +148,7 @@
         </div>
         <div class="trait">
             <img src="icon/disco.png" alt="disco">
-            <h3>Disco</h3>
+            <h3>迪斯科</h3>
             <input type="checkbox" id="disco_early_drums" name="disco_early_drums" class="early">
             <label for="disco_early_drums">early_drums</label>
             <audio id="audiodisco_early_drums" src="tracks/disco_early_drums.ogg" preload="none" loop></audio>
@@ -167,7 +167,7 @@
         </div>
         <div class="trait">
             <img src="icon/edm.png" alt="EDM">
-            <h3>EDM</h3>
+            <h3>电子舞曲</h3>
             <input type="checkbox" id="edm_early_drums" name="edm_early_drums" class="early">
             <label for="edm_early_drums">early_drums</label>
             <audio id="audioedm_early_drums" src="tracks/edm_early_drums.ogg" preload="none" loop></audio>
@@ -186,7 +186,7 @@
         </div>
         <div class="trait">
             <img src="icon/emo.png" alt="emo">
-            <h3>Emo</h3>
+            <h3>EMO</h3>
             <input type="checkbox" id="emo_early_drums" name="emo_early_drums" class="early">
             <label for="emo_early_drums">early_drums</label>
             <audio id="audioemo_early_drums" src="tracks/emo_early_drums.ogg" preload="none" loop></audio>
@@ -205,7 +205,7 @@
         </div>
         <div class="trait">
             <img src="icon/heartsteel.png" alt="heartsteel">
-            <h3>Heartsteel</h3>
+            <h3>心之钢</h3>
             <input type="checkbox" id="heartsteel_early_drums" name="heartsteel_early_drums" class="early">
             <label for="heartsteel_early_drums">early_drums</label>
             <audio id="audioheartsteel_early_drums" src="tracks/heartsteel_early_drums.ogg" preload="none" loop></audio>
@@ -232,7 +232,7 @@
         </div>
         <div class="trait">
             <img src="icon/hyperpop.png" alt="hyperpop">
-            <h3>Hyperpop</h3>
+            <h3>高能流行</h3>
             <input type="checkbox" id="hyperpop_early" name="hyperpop_early" class="early">
             <label for="hyperpop_early">early</label>
             <audio id="audiohyperpop_early" src="tracks/hyperpop_early.ogg" preload="none" loop></audio>
@@ -247,7 +247,7 @@
         </div>
         <div class="trait">
             <img src="icon/illbeats.png" alt="ILLBEATS">
-            <h3>ILLBEATS</h3>
+            <h3>大触打击乐</h3>
             <input type="checkbox" id="illbeats_early" name="illbeats_early" class="early">
             <label for="illbeats_early">early</label>
             <audio id="audioillbeats_early" src="tracks/illbeats_early.ogg" preload="none" loop></audio>
@@ -258,7 +258,7 @@
         </div>
         <div class="trait">
             <img src="icon/jazz.png" alt="jazz">
-            <h3>Jazz</h3>
+            <h3>爵士乐</h3>
             <input type="checkbox" id="jazz_early_main" name="jazz_early_main" class="early">
             <label for="jazz_early_main">early_main</label>
             <audio id="audiojazz_early_main" src="tracks/jazz_early_main.ogg" preload="none" loop></audio>
@@ -269,7 +269,7 @@
         </div>
         <div class="trait">
             <img src="icon/mixmaster.png" alt="mixmaster">
-            <h3>MixMaster</h3>
+            <h3>DJ娑娜</h3>
             <input type="checkbox" id="mixmaster_early" name="mixmaster_early" class="early">
             <label for="mixmaster_early">early</label>
             <audio id="audiomixmaster_early" src="tracks/mixmaster_early.ogg" preload="none" loop></audio>
@@ -280,7 +280,7 @@
         </div>
         <div class="trait">
             <img src="icon/pentakill.png" alt="pentakill">
-            <h3>Pentakill</h3>
+            <h3>五杀摇滚</h3>
             <input type="checkbox" id="pentakill_early_drums" name="pentakill_early_drums" class="early">
             <label for="pentakill_early_drums">early_drums</label>
             <audio id="audiopentakill_early_drums" src="tracks/pentakill_early_drums.ogg" preload="none" loop></audio>
@@ -307,7 +307,7 @@
         </div>
         <div class="trait">
             <img src="icon/truedmg.png" alt="truedamage">
-            <h3>True Damage</h3>
+            <h3>真实伤害</h3>
             <input type="checkbox" id="truedamage_early_drums" name="truedamage_early_drums" class="early">
             <label for="truedamage_early_drums">early_drums</label>
             <audio id="audiotruedamage_early_drums" src="tracks/truedamage_early_drums.ogg" preload="none" loop></audio>
@@ -335,7 +335,7 @@
     </div>
     <hr>
     <div class="trait">
-        <h3>Other Tracks</h3>
+        <h3>其他乐曲</h3>
         <input type="checkbox" id="starting_carousel" name="starting_carousel">
         <label for="starting_carousel">Starting Carousel</label>
         <audio id="audiostarting_carousel" src="tracks/starting_carousel.ogg" preload="none" loop></audio>
@@ -374,10 +374,10 @@
     </div>
     <script src="script.js"></script>
     <hr>
-    <h3>Created by <a href="https://officiallysp.net">OfficiallySp</a></h3>
-    <h3>Track referencing + additional coding by Tactoe</h3>
-    <h3>Real time support by mattmora</h3>
-    <h3>TFT / LoL universe made by <a href="https://www.riotgames.com/en">Riot Games</a></h3>
+    <h3>由 <a href="https://officiallysp.net">OfficiallySp</a> 制作</h3>
+    <h3>音轨引用 + 附加代码由 Tactoe 提供</h3>
+    <h3>实时支持由 mattmora 提供</h3>
+    <h3>云顶之弈 / 英雄联盟 宇宙由 <a href="https://www.riotgames.com/en">Riot Games</a> 制作</h3>
     <h3>©️ Shane Pepperell 2023</h3>
 
 </body>
