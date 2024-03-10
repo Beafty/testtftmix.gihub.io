@@ -45,9 +45,9 @@
     <button class="btn btn-warning" onclick="randomSelectLateTracks()">随机选择后期音轨</button>
     <button class="btn btn-danger" onclick="clearAllSelections()">清除所有选择</button>
     <button onclick="generateShareableLink()" class="btn btn-info">生成可分享链接</button>
-    <button onclick="tweetMix()" class="btn btn-primary"><i class="fab fa-twitter"></i> 推文混音</button>
+    <button onclick="tweetMix()" class="btn btn-primary"><i class="fab fa-twitter"></i>分享到推特</button>
     <div class="alert alert-success" id="copyNotification" style="display:none; position: fixed; bottom: 20px; right: 20px;">
-        <strong>URL 已复制到剪贴板</strong>
+        <strong>URL已复制到剪贴板</strong>
     </div>
     <hr>
     <div class="trait-container">
@@ -101,7 +101,7 @@
             <img src="icon/maestro.png" alt="maestro">
             <h3>戏命师</h3>
             <input type="checkbox" id="maestro_early" name="maestro_early" class="early">
-            <label for="maestro_early">早期</label>
+            <label for="maestro_early">早期戏命师主旋律</label>
             <audio id="audiomaestro_early" src="tracks/maestro_early.ogg" preload="none" loop></audio>
             <br>
             <input type="checkbox" id="maestro_late" name="maestro_late" class="late">
@@ -234,11 +234,11 @@
             <img src="icon/hyperpop.png" alt="hyperpop">
             <h3>高能流行</h3>
             <input type="checkbox" id="hyperpop_early" name="hyperpop_early" class="early">
-            <label for="hyperpop_early">early</label>
+            <label for="hyperpop_early">早期</label>
             <audio id="audiohyperpop_early" src="tracks/hyperpop_early.ogg" preload="none" loop></audio>
             <br>
             <input type="checkbox" id="hyperpop_late" name="hyperpop_late" class="late">
-            <label for="hyperpop_late">late</label>
+            <label for="hyperpop_late">后期</label>
             <audio id="audiohyperpop_late" src="tracks/hyperpop_late.ogg" preload="none" loop></audio>
             <br>
             <input type="checkbox" id="hyperpop_late_drums" name="hyperpop_late_drums" class="late">
@@ -249,11 +249,11 @@
             <img src="icon/illbeats.png" alt="ILLBEATS">
             <h3>大触打击乐</h3>
             <input type="checkbox" id="illbeats_early" name="illbeats_early" class="early">
-            <label for="illbeats_early">early</label>
+            <label for="illbeats_early">早期</label>
             <audio id="audioillbeats_early" src="tracks/illbeats_early.ogg" preload="none" loop></audio>
             <br>
             <input type="checkbox" id="illbeats_late" name="illbeats_late" class="late">
-            <label for="illbeats_late">late</label>
+            <label for="illbeats_late">后期</label>
             <audio id="audioillbeats_late" src="tracks/heartsteel_late_drums.ogg" preload="none" loop></audio>
         </div>
         <div class="trait">
@@ -271,11 +271,11 @@
             <img src="icon/mixmaster.png" alt="mixmaster">
             <h3>DJ娑娜</h3>
             <input type="checkbox" id="mixmaster_early" name="mixmaster_early" class="early">
-            <label for="mixmaster_early">early</label>
+            <label for="mixmaster_early">早期</label>
             <audio id="audiomixmaster_early" src="tracks/mixmaster_early.ogg" preload="none" loop></audio>
             <br>
             <input type="checkbox" id="mixmaster_late" name="mixmaster_late" class="late">
-            <label for="mixmaster_late">late</label>
+            <label for="mixmaster_late">后期</label>
             <audio id="audiomixmaster_late" src="tracks/mixmaster_late.ogg" preload="none" loop></audio>
         </div>
         <div class="trait">
@@ -341,11 +341,11 @@
         <audio id="audiostarting_carousel" src="tracks/starting_carousel.ogg" preload="none" loop></audio>
         <br>
         <input type="checkbox" id="piano_early" name="piano_early" class="early">
-        <label for="piano_early">No Traits Early</label>
+        <label for="piano_early">早期无羁绊</label>
         <audio id="audiopiano_early" src="tracks/piano_early.ogg" preload="none" loop></audio>
         <br>
         <input type="checkbox" id="piano_late" name="piano_late" class="late">
-        <label for="piano_late">No Traits Late</label>
+        <label for="piano_late">后期无羁绊</label>
         <audio id="audiopiano_late" src="tracks/piano_late.ogg" preload="none" loop></audio>
         <br>
         <input type="checkbox" id="death1" name="death1">
@@ -378,7 +378,7 @@
     <h3>音轨引用 + 附加代码由 Tactoe 提供</h3>
     <h3>实时支持由 mattmora 提供</h3>
     <h3>云顶之弈 / 英雄联盟 宇宙由 <a href="https://www.riotgames.com/en">Riot Games</a> 制作</h3>
-    <h3>?? Shane Pepperell 2023</h3>
+    <h3>©️ Shane Pepperell 2023</h3>
 
 </body>
 
