@@ -33,6 +33,9 @@ var endedArray = [];
 var playingArray = [];
 var endedCallbackArray = [];
 
+// Cache for audio buffers to avoid re-downloading
+var audioBufferCache = {};
+
 function playSelectedTracks() {
     stopAllTracks();
 
@@ -59,8 +62,9 @@ function playSelectedTracks() {
             const trackIndex = i;
             trackElement.addEventListener('change', () => toggleTrackRealTime(trackIndex));
         }
-        // Collect tracks to load (all if real time mode)
-        if (document.getElementById('realTime').checked || trackElement.checked) {
+        // OPTIMIZATION: Only load checked tracks, even in real-time mode
+        // Real-time mode will load tracks on-demand when checked
+        if (trackElement.checked) {
             activeTrackElements.push(trackElement);
             playlist.push("tracks/" + tracks[i] + ".aac");
         }
@@ -69,15 +73,21 @@ function playSelectedTracks() {
 
     (async () => {
         const urls = playlist;
-        // first, fetch each file's data
-        const data_buffers = await Promise.all(
-            urls.map((url) => fetch(url).then((res) => res.arrayBuffer()))
-        );
-        // get our AudioContext
-        // decode the data
-        audio_buffers = await Promise.all(
-            data_buffers.map((buf) => context.decodeAudioData(buf))
-        );
+        // OPTIMIZATION: Check cache first, only fetch if not cached
+        const loadPromises = urls.map(async (url) => {
+            const trackName = url.replace('tracks/', '').replace('.aac', '');
+            if (audioBufferCache[trackName]) {
+                return audioBufferCache[trackName];
+            }
+            // Fetch and decode, then cache
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const audioBuffer = await context.decodeAudioData(arrayBuffer);
+            audioBufferCache[trackName] = audioBuffer;
+            return audioBuffer;
+        });
+        
+        audio_buffers = await Promise.all(loadPromises);
         // to enable the AudioContext we need to handle a user gesture
         const current_time = context.currentTime;
         masterGainNode = context.createGain();
@@ -171,9 +181,11 @@ function toggleRealTime() {
 
 function toggleTrackRealTime(trackIndex) {
     if (document.getElementById('realTime').checked) {
+        const track = activeTrackElements[trackIndex];
+        if (!track) return;
+        
         const gainNode = audioGainArray[trackIndex];
         if (gainNode != null) {
-            const track = activeTrackElements[trackIndex];
             gainNode.gain.setValueAtTime(track.checked ? 1 : 0, context.currentTime);
 
             if (endedArray[trackIndex] !== true) {
