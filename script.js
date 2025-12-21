@@ -277,7 +277,7 @@ function tweetMix() {
     var url = window.location.href.split('?')[0];
     url += '?selectedTracks=' + selectedTracks.join(',');
 
-    var twitterUrl = 'https://twitter.com/intent/tweet?text=Check out my TFT remix rumble music mix!: ' + encodeURIComponent(url) + '&hashtags=TFT,TFTRemixRumble';
+    var twitterUrl = 'https://x.com/intent/tweet?text=Check out my TFT remix rumble music mix!: ' + encodeURIComponent(url) + '&hashtags=TFT,TFTRemixRumble';
     window.open(twitterUrl, '_blank').focus();
 }
 
