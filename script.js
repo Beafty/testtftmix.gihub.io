@@ -281,25 +281,6 @@ function tweetMix() {
     window.open(twitterUrl, '_blank').focus();
 }
 
-function applyPreset(presetName) {
-    // First, clear all selections
-    const checkboxes = document.querySelectorAll('input[type=checkbox]');
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = false;
-    });
-
-    // Apply the preset selections
-    const presetSelections = presets[presetName];
-    presetSelections.forEach(selectionId => {
-        const checkbox = document.getElementById(selectionId);
-        if (checkbox) {
-            checkbox.checked = true;
-        }
-    });
-
-    // Update any UI elements or states as necessary
-}
-
 function setTracksFromURL() {
     var params = new URLSearchParams(window.location.search);
     var selectedTracks = params.get('selectedTracks');
